@@ -1,4 +1,4 @@
-package Case_1;
+package case1;
 
 public class Employee {
 	
@@ -22,7 +22,7 @@ public class Employee {
         return tax;
     }
 
-    private int bonus(int baseWorkHours) {
+    private double bonus(int baseWorkHours) {
         int bonusFee = 0;
         if (baseWorkHours > 40) {
             bonusFee = (baseWorkHours - 40) * 30;
@@ -51,16 +51,16 @@ public class Employee {
     @Override
     public String toString() {
         return          
-        		 "Employee Name                 : " + name +
-               "\nSalary                        : " + String.format("%.2f",salary )+ " TL" +
+        	 "Employee Name                 : " + name +
+               "\nSalary                        : " + String.format("%.1f",salary )+ " TL" +
                "\nWork hours                    : " + workHours + " Hours" +
                "\nHire Year                     : " + hireYear +
-               "\nTax                           : " + String.format("%.2f",tax(salary)) + " TL" +
-               "\nBonus                         : " + bonus(workHours) + " TL" +
-               "\nSalary Increase(only increase): " + String.format("%.2f",(raiseSalary(hireYear)-bonus(workHours)+tax(salary))) + " TL" +   // maaş zammı yani maaş artışı           
-               "\nSalary With Bonus and Tax     : " + String.format("%.2f",raiseSalary(hireYear)) + " TL" + 
-               "\nTotal Salary                  : " + String.format("%.2f",(salary + raiseSalary(hireYear))) + " TL"+
-               "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+               "\nTax                           : " + String.format("%.1f",tax(salary)) + " TL" +
+               "\nBonus                         : " + String.format("%.1f",bonus(workHours)) + " TL" +
+               "\nSalary Increase(only increase): " + String.format("%.1f",(raiseSalary(hireYear)-bonus(workHours)+tax(salary))) + " TL" +          
+               "\nSalary With Bonus and Tax     : " + String.format("%.1f",(salary+bonus(workHours)-tax(salary))) + " TL" + 
+               "\nTotal Salary                  : " + String.format("%.1f",(salary + raiseSalary(hireYear))) + " TL"+
+               "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ";
 
     }
 /*    public static void main(String[] args) {
@@ -68,7 +68,7 @@ public class Employee {
         Employee employee2 = new Employee("Halil ERMAN", 900, 55, 2001);
         Employee employee3 = new Employee("Selim KOCAMAN", 1300, 42, 2011);
         Employee employee4 = new Employee("Burhan KAYIM", 1500, 25, 1994);        
-        Employee employee5 = new Employee("Cengiz AKIN", 875, 52, 2016);
+        Employee employee5 = new Employee("Kemal BEY", 2000, 45, 1985);
         
         System.out.println(employee1);  
         System.out.println(employee2); 
